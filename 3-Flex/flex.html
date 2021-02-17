@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .parent{
+      width: 800px;
+      height: 800px;
+      background: #dddddd;
+      display: flex;
+      align-items: center;
+      /* flex-wrap: wrap; */
+      justify-content: space-between;
+    }
+    .son1,.son2,.son3{
+      flex-basis: auto;
+    }
+    .son1{
+      width: 100px;
+      height: 100px;
+      background-color: aliceblue;
+      flex-shrink: 8;
+    }
+
+    .son2{
+      width: 400px;
+      height: 100px;
+      background-color: rgb(26, 133, 226);
+      flex-shrink: 1;
+    }
+
+    .son3{
+      width: 1000px;
+      height: 100px;
+      background-color: rgb(41, 224, 56);
+      flex-shrink: 1;
+    }
+
+
+
+  </style>
+</head>
+<body>
+  <div class="parent">
+    <div class="son1">00</div>
+    <div class="son2">01</div>
+    <div class="son3">02</div>
+  </div>
+</body>
+</html>
