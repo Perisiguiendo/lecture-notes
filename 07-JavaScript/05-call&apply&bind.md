@@ -2,7 +2,9 @@
 
 ##  比较
 
-call，apply 都属于 Function.prototype 的一个方法，它是 JavaScript 引擎内在实现的，因为属于 Function.prototype，所以每个 Function 对象实例(就是每个方法)都有 call，apply 属性
+call，apply 都属于 Function.prototype 的一个方法，它是 JavaScript 引擎内在实现的
+
+因为属于 Function.prototype，所以每个 Function 对象实例(就是每个方法)都有 call，apply 属性
 
 IE5之前不支持call和apply，bind是ES5出来的
 
@@ -17,7 +19,7 @@ foo.bind(this, arg1, arg2, arg3...)
 
 - 相同点：三者都是用来改变函数的上下文，也就是`this`指向的
 - 不同点：
-  - `fn.bind`： 不会立即调用，而是返回一个绑定后的新函数，`this`指向第一个参数，第二个参数是个数组
+  - `fn.bind`： 不会立即调用，而是返回一个绑定后的新函数，`this`指向第一个参数
   - `fn.call`：立即调用，返回函数执行结果，`this`指向第一个参数，后面可有多个参数，并且这些都是`fn`函数的参数
   - `fn.apply`：立即调用，返回函数的执行结果，`this`指向第一个参数，第二个参数是个数组，这个数组里内容是`fn`函数的参数
 - bind 传参方式跟 call 方法一致
@@ -35,7 +37,7 @@ foo.bind(this, arg1, arg2, arg3...)
 
 ## 原生实现
 
-### call📝
+### 📝call
 
 ```javascript
 Function.prototype.newCall = function(obj = window){
@@ -47,7 +49,7 @@ Function.prototype.newCall = function(obj = window){
 }
 ```
 
-### apply📝
+### 📝apply
 
 ```javascript
 Function.prototype.newApply = function (context = window, arr){
@@ -63,7 +65,7 @@ Function.prototype.newApply = function (context = window, arr){
 }
 ```
 
-### bind📝
+### 📝bind
 
 ```javascript
 Function.prototype.myBind = function (object) {
@@ -184,5 +186,3 @@ Math.max.apply(null,arr)
 ```javascript
 Object.prototype.toString.call({})
 ```
-
-### 

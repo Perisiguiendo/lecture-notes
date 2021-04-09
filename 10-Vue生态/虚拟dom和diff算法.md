@@ -1,12 +1,20 @@
+# 虚拟dom和diff算法
+
 ## 虚拟dom
 
-### 虚拟dom出现的原因：
+### 出现的原因
 
-浏览器解析一个html大致分为五步：创建DOM tree –> 创建Style Rules -> 构建Render tree -> 布局Layout –> 绘制Painting。每次对真实dom进行操作的时候，浏览器都会从构建dom树开始从头到尾执行一遍流程。真实的dom操作代价昂贵，操作频繁还会引起页面卡顿影响用户体验，**虚拟dom就是为了解决这个浏览器性能问题才被创造出来**
+浏览器解析一个html大致分为五步：
+
+​	创建DOM tree –> 创建Style Rules -> 构建Render tree -> 布局Layout –> 绘制Painting
+
+每次对真实dom进行操作的时候，浏览器都会从构建dom树开始从头到尾执行一遍流程。
+
+真实的dom操作代价昂贵，操作频繁还会引起页面卡顿影响用户体验，**虚拟dom就是为了解决这个浏览器性能问题才被创造出来**
 
 虚拟dom在执行dom的更新操作后，虚拟dom不会直接操作真实dom，而是将更新的diff内容保存到本地js对象中，然后一次性attach到dom树上，通知浏览器进行dom绘制避免大量无谓的计算。
 
-### 实现：
+### 实现
 
 js对象表示dom结构，对象记录了dom节点的标签、属性和子节点
 
@@ -36,9 +44,9 @@ Vue中一个虚拟dom包含以下属性
 - isCloned： 当前节点是否为克隆节点
 - isOnce： 当前节点是否有v-once指令
 
-简单总结：虚拟DOM是将真实的DOM节点用JavaScript模拟出来，将DOM变化的对比，放到 Js 层来做。
+简单总结：**虚拟DOM是将真实的DOM节点用JavaScript模拟出来，将DOM变化的对比，放到 Js 层来做**。
 
-### 优势：
+### 优势
 
 - 跨平台：Virtual DOM 是以 JavaScript 对象为基础而不依赖真实平台环境，所以使它具有了跨平台的能力，比如说浏览器平台、Weex、Node 等。
 - 提高DOM操作效率：DOM操作的执行速度远不如Javascript的运算速度快，因此，把大量的DOM操作搬运到Javascript中，运用patching算法来计算出真正需要更新的节点，最大限度地减少DOM操作，从而显著提高性能。
@@ -51,13 +59,14 @@ Vue中一个虚拟dom包含以下属性
 - Vue.js通过编译将template 模板转换成渲染函数(render ) ，执行渲染函数就可以得到一个虚拟节点树
 - 在对 Model 进行操作的时候，会触发对应 Dep 中的 Watcher 对象。Watcher 对象会调用对应的 update 来修改视图。这个过程主要是将新旧虚拟节点进行差异对比（patch），然后根据对比结果进行DOM操作来更新视图。
 
-> diff算法是一种优化手段，将前后两个模块进行差异对比，修补(更新)差异的过程叫做patch
->
-> **patch**：
->
-> 虚拟DOM最核心的部分，它可以将vnode渲染成真实的DOM，这个过程是**对比新旧虚拟节点之间有哪些不同，然后根据对比结果找出需要更新的的节点进行更新**。
->
-> patch本身就有补丁、修补的意思，其实际作用是在现有DOM上进行修改来实现更新视图的目的。Vue的Virtual DOM patching算法是基于**Snabbdom**的实现，并在些基础上作了很多的调整和改进。
+
+
+diff算法是一种优化手段，将前后两个模块进行差异对比，修补(更新)差异的过程叫做patch
+
+- patch
+  - 虚拟DOM最核心的部分，它可以将vnode渲染成真实的DOM，这个过程是**对比新旧虚拟节点之间有哪些不同，然后根据对比结果找出需要更新的的节点进行更新**
+  - patch本身就有补丁、修补的意思，其实际作用是在现有DOM上进行修改来实现更新视图的目的
+  - Vue的Virtual DOM patching算法是基于**Snabbdom**的实现，并在些基础上作了很多的调整和改进
 
 ## diff算法
 
@@ -65,7 +74,9 @@ Vue中一个虚拟dom包含以下属性
 
 ![image-20210217154347008](D:\资料\lecture-notes\10-Vue生态\image\image-20210217154347008.png)
 
-Vue的diff算法是**仅在同级的vnode间做diff，递归地进行同级vnode的diff，最终实现整个DOM树的更新**。因为跨层级的操作是非常少的，忽略不计，这样时间复杂度就从O(n3)变成O(n)。
+Vue的diff算法是**仅在同级的vnode间做diff，递归地进行同级vnode的diff，最终实现整个DOM树的更新**。
+
+因为跨层级的操作是非常少的，忽略不计，这样时间复杂度就从O(n3)变成O(n)。
 
 <img src="https://user-gold-cdn.xitu.io/2020/5/18/17226b51df6d86db?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt="img" style="zoom: 50%;" />
 
@@ -77,11 +88,11 @@ Vue的diff算法是**仅在同级的vnode间做diff，递归地进行同级vnode
 
 ### patch过程
 
-当新旧虚拟节点的key和sel都相同时，则进行节点的深度patch，若不相同则整个替换虚拟节点，同时创建真实DOM，实现视图更新。
+当新旧虚拟节点的**key**和**sel（选择器）**都相同时，则进行节点的深度patch，若不相同则整个替换虚拟节点，同时创建真实DOM，实现视图更新。
 
-> 如何判定新旧节点是否为同一节点：
->
-> 当两个VNode的tag、key、isComment都相同，并且同时定义或未定义data的时候，且如果标签为input则type必须相同。这时候这两个VNode则算sameVnode，可以直接进行patchVnode操作。
+如何判定新旧节点是否为同一节点：
+
+- 当两个VNode的tag、key、isComment（是否为注释节点）都相同，并且同时定义或未定义data的时候，且如果标签为input则type必须相同。这时候这两个VNode则算sameVnode，可以直接进行patchVnode操作。
 
 ```js
 function patch (oldVnode, vnode) {
@@ -169,15 +180,15 @@ function patch (oldVnode, vnode) {
 
 #### patchVnode的规则
 
-1.如果新旧VNode都是静态的，同时它们的key相同（代表同一节点），那么只需要替换elm以及componentInstance即可（原地复用）。
+1. 如果新旧VNode都是静态的，同时它们的key相同（代表同一节点），那么只需要替换elm以及componentInstance即可（原地复用）。
 
-2.新老节点均有children子节点且不同，则对子节点进行diff操作，调用updateChildren，这个**updateChildren也是diff的核心**。
+2. 新老节点均有children子节点且不同，则对子节点进行diff操作，调用updateChildren，这个**updateChildren也是diff的核心**。
 
-3.如果只有新节点存在子节点，先清空老节点DOM的文本内容，然后为当前DOM节点加入子节点。
+3. 如果只有新节点存在子节点，先清空老节点DOM的文本内容，然后为当前DOM节点加入子节点。
 
-4.如果只有老节点有子节点，直接删除老节点的子节点。
+4. 如果只有老节点有子节点，直接删除老节点的子节点。
 
-5.当新老节点都无子节点的时候，只是文本的替换。
+5. 当新老节点都无子节点的时候，只是文本的替换。
 
 ### updateChildren
 
@@ -258,7 +269,7 @@ updateChildren (parentElm, oldCh, newCh) {
 #### 过程概述
 
 - 将`Vnode`的子节点`Vch`和`oldVnode`的子节点`oldCh`提取出来
-- `oldCh`和`vCh`各有两个头尾的变量`StartIdx`和`EndIdx`，它们的2个变量相互比较，一共有4种比较方式，，当其中两个能匹配上那么真实dom中的相应节点会移到Vnode相应的位置。如果4种比较都没匹配，如果设置了`key`，就会用`key`进行比较，在比较的过程中，变量会往中间靠，一旦`StartIdx>EndIdx`表明`oldCh`和`vCh`至少有一个已经遍历完了，就会结束比较。
+- `oldCh`和`vCh`各有两个头尾的变量`StartIdx`和`EndIdx`，它们的2个变量相互比较，一共有4种比较方式，当其中两个能匹配上那么真实dom中的相应节点会移到Vnode相应的位置。如果4种比较都没匹配，如果设置了`key`，就会用`key`进行比较，在比较的过程中，变量会往中间靠，一旦`StartIdx>EndIdx`表明`oldCh`和`vCh`至少有一个已经遍历完了，就会结束比较。
 
 <img src="D:\资料\lecture-notes\10-Vue生态\image\image-20210217154553784.png" alt="image-20210217154553784" style="zoom:67%;" />
 
@@ -401,7 +412,7 @@ s>f
 循环结束，oldS与oldE之间的节点删除
 ```
 
-### 总结：
+## 总结
 
 - 尽量不要跨层级的修改dom
 - 在开发组件时，保持稳定的 DOM 结构会有助于性能的提升

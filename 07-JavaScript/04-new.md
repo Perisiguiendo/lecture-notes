@@ -16,9 +16,7 @@ function _new (func, ...args) {
 }
 ```
 
-![image-20210215210341281](D:\资料\lecture-notes\7-JavaScript\image\image-20210215210341281.png)
-
-
+![image-20210215210341281](D:\资料\lecture-notes\07-JavaScript\image\image-20210215210341281.png)
 
 
 

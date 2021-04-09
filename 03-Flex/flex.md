@@ -2,7 +2,7 @@
 
 要想熟练掌握flex布局的话，你需要理解两个概念：`轴`和`容器`👇
 
-![image-20210212225434506](D:\资料\lecture-notes\3-Flex\image\image-20210212225434506.png)
+![image-20210212225434506](D:\资料\lecture-notes\03-Flex\image\image-20210212225434506.png)
 
 从上面图来看，我们将flex布局分为两部分讲，`轴`和`容器`。
 
@@ -24,7 +24,7 @@
 
 我们知道，`轴`包括`主轴`和`交叉轴`,那么它们的方向是如何决定呢？我们直接从一张图看懂它👇
 
-![image-20210212225412239](D:\资料\lecture-notes\3-Flex\image\image-20210212225412239.png)
+![image-20210212225412239](D:\资料\lecture-notes\03-Flex\image\image-20210212225412239.png)
 
 默认情况下，**主轴**的方向是从左向右的，**交叉轴**垂直于主轴，逆时针方向90度，那么接下来我们看**flex-direction**是如何决定主轴的。讲这个之前，我们需要明白👇
 
@@ -35,7 +35,7 @@
 flex-direction: row | row-reverse | column | column-reverse
 ```
 
-![image-20210212225523753](D:\资料\lecture-notes\3-Flex\image\image-20210212225523753.png)
+![image-20210212225523753](D:\资料\lecture-notes\03-Flex\image\image-20210212225523753.png)
 
 首先布局如下👇
 
@@ -59,7 +59,7 @@ flex-direction: row
 
 效果👇
 
-![image-20210212225607344](D:\资料\lecture-notes\3-Flex\image\image-20210212225607344.png)
+![image-20210212225607344](D:\资料\lecture-notes\03-Flex\image\image-20210212225607344.png)
 
 **结论**
 
@@ -77,7 +77,7 @@ flex-direction: row-reverse
 
 效果👇
 
-![image-20210212225638326](D:\资料\lecture-notes\3-Flex\image\image-20210212225638326.png)
+![image-20210212225638326](D:\资料\lecture-notes\03-Flex\image\image-20210212225638326.png)
 
 我们可以看到这两个盒子的位置发生了变化，这个就是主轴起点和主轴终点位置**置换**的原因。
 
@@ -97,7 +97,7 @@ flex-direction: column
 
 效果👇
 
-![image-20210212225703954](D:\资料\lecture-notes\3-Flex\image\image-20210212225703954.png)
+![image-20210212225703954](D:\资料\lecture-notes\03-Flex\image\image-20210212225703954.png)
 
 可以看到，子盒子的布局发生了变化，形成了在Y轴上的布局方式,并且书写方式跟布局一样。
 
@@ -117,7 +117,7 @@ flex-direction: column-reverse
 
 效果👇
 
-![image-20210212225728912](D:\资料\lecture-notes\3-Flex\image\image-20210212225728912.png)
+![image-20210212225728912](D:\资料\lecture-notes\03-Flex\image\image-20210212225728912.png)
 
 可以看到，子盒子的布局跟column差不多，唯一不同的是，方向上发生了变化。
 
@@ -137,7 +137,7 @@ flex-direction: column-reverse
 - justify-content:  **设置子元素在主轴方向上的对齐方式**
 - align-items： **设置子元素在交叉轴方向上的对齐方式**
 
-![image-20210212225751995](D:\资料\lecture-notes\3-Flex\image\image-20210212225751995.png)
+![image-20210212225751995](D:\资料\lecture-notes\03-Flex\image\image-20210212225751995.png)
 
 ------
 
@@ -156,7 +156,7 @@ justify-content: flex-start
 
 效果👇
 
-![image-20210212225855730](D:\资料\lecture-notes\3-Flex\image\image-20210212225855730.png)
+![image-20210212225855730](D:\资料\lecture-notes\03-Flex\image\image-20210212225855730.png)
 
 **结论**，子元素沿着主轴方向开始对齐。
 
@@ -171,7 +171,7 @@ justify-content: flex-end
 
 效果👇
 
-![image-20210212225920761](D:\资料\lecture-notes\3-Flex\image\image-20210212225920761.png)
+![image-20210212225920761](D:\资料\lecture-notes\03-Flex\image\image-20210212225920761.png)
 
 **结论**，子元素沿着主轴方向终点对齐。
 
@@ -186,7 +186,7 @@ justify-content: center
 
 效果👇
 
-![image-20210212225935895](D:\资料\lecture-notes\3-Flex\image\image-20210212225935895.png)
+![image-20210212225935895](D:\资料\lecture-notes\03-Flex\image\image-20210212225935895.png)
 
 **结论**，子元素在主轴方向上水平居中。
 
@@ -201,7 +201,7 @@ justify-content: space-between
 
 效果👇
 
-![image-20210212225957700](D:\资料\lecture-notes\3-Flex\image\image-20210212225957700.png)
+![image-20210212225957700](D:\资料\lecture-notes\03-Flex\image\image-20210212225957700.png)
 
 **结论**，子元素在主轴方向上**两端对齐，项目之间间隔相等**。
 
@@ -216,7 +216,7 @@ justify-content: space-around
 
 效果👇
 
-![image-20210212230011298](D:\资料\lecture-notes\3-Flex\image\image-20210212230011298.png)
+![image-20210212230011298](D:\资料\lecture-notes\03-Flex\image\image-20210212230011298.png)
 
 **结论**，子元素在主轴方向上**均匀排列每个元素，每个元素周围分配相同的空间**。
 
@@ -235,7 +235,7 @@ justify-content: space-around
 align-items: flex-start
 ```
 
-![image-20210212230027617](D:\资料\lecture-notes\3-Flex\image\image-20210212230027617.png)
+![image-20210212230027617](D:\资料\lecture-notes\03-Flex\image\image-20210212230027617.png)
 
 **结论**，子元素在交叉轴方向上起点对齐。
 
@@ -248,7 +248,7 @@ align-items: flex-start
 align-items: flex-end
 ```
 
-![image-20210212230042871](D:\资料\lecture-notes\3-Flex\image\image-20210212230042871.png)
+![image-20210212230042871](D:\资料\lecture-notes\03-Flex\image\image-20210212230042871.png)
 
 **结论**，子元素在交叉轴方向上终点对齐。
 
@@ -261,7 +261,7 @@ align-items: flex-end
 align-items: center
 ```
 
-![image-20210212230056165](D:\资料\lecture-notes\3-Flex\image\image-20210212230056165.png)
+![image-20210212230056165](D:\资料\lecture-notes\03-Flex\image\image-20210212230056165.png)
 
 **结论**，子元素在交叉轴方向上居中对齐。
 
@@ -274,7 +274,7 @@ align-items: center
 align-items: baseline
 ```
 
-![image-20210212230153720](D:\资料\lecture-notes\3-Flex\image\image-20210212230153720.png)
+![image-20210212230153720](D:\资料\lecture-notes\03-Flex\image\image-20210212230153720.png)
 
 **结论**，子元素在交叉轴方向上以文字基线对齐，具体不清楚的，可以自行百度。
 
@@ -287,7 +287,7 @@ align-items: baseline
 align-items: stretch
 ```
 
-![image-20210212230213796](D:\资料\lecture-notes\3-Flex\image\image-20210212230213796.png)
+![image-20210212230213796](D:\资料\lecture-notes\03-Flex\image\image-20210212230213796.png)
 
 **结论**，这个属性是默认的，如果项目未设置高度或者设为 auto，将占满整个容器的高度。
 
@@ -297,7 +297,7 @@ align-items: stretch
 
 先看张图片
 
-![image-20210212230620088](D:\资料\lecture-notes\3-Flex\image\image-20210212230620088.png)
+![image-20210212230620088](D:\资料\lecture-notes\03-Flex\image\image-20210212230620088.png)
 
 子容器的话，这里就介绍两个属性👇
 
@@ -335,7 +335,7 @@ align-items: stretch
 
 具体的flex取值问题，可以参照下面的图👇
 
-![image-20210213112850849](D:\资料\lecture-notes\3-Flex\image\image-20210213112850849.png)
+![image-20210213112850849](D:\资料\lecture-notes\03-Flex\image\image-20210213112850849.png)
 
 ------
 
@@ -346,7 +346,7 @@ align-items: stretch
 align-self : flex-start;
 ```
 
-![image-20210213112534381](D:\资料\lecture-notes\3-Flex\image\image-20210213112534381.png)
+![image-20210213112534381](D:\资料\lecture-notes\03-Flex\image\image-20210213112534381.png)
 
 ------
 
@@ -355,7 +355,7 @@ align-self : flex-start;
 align-self : flex-end;
 ```
 
-![image-20210213112616556](D:\资料\lecture-notes\3-Flex\image\image-20210213112616556.png)
+![image-20210213112616556](D:\资料\lecture-notes\03-Flex\image\image-20210213112616556.png)
 
 ------
 
@@ -364,7 +364,7 @@ align-self : flex-end;
 align-self : baseline;
 ```
 
-![image-20210213112654973](D:\资料\lecture-notes\3-Flex\image\image-20210213112654973.png)
+![image-20210213112654973](D:\资料\lecture-notes\03-Flex\image\image-20210213112654973.png)
 
 可以看到的话，它们对齐的方式是第一行文字的基线。
 
@@ -375,7 +375,7 @@ align-self : baseline;
 align-self : stretch;
 ```
 
-![image-20210213112759179](D:\资料\lecture-notes\3-Flex\image\image-20210213112759179.png)
+![image-20210213112759179](D:\资料\lecture-notes\03-Flex\image\image-20210213112759179.png)
 
 ------
 
@@ -414,7 +414,7 @@ flex-wrap : wrap
 
 效果👇
 
-![image-20210213113040381](D:\资料\lecture-notes\3-Flex\image\image-20210213113040381.png)
+![image-20210213113040381](D:\资料\lecture-notes\03-Flex\image\image-20210213113040381.png)
 
 ------
 
@@ -425,7 +425,7 @@ flex-wrap : nowrap
 
 效果👇
 
-![image-20210213113056050](D:\资料\lecture-notes\3-Flex\image\image-20210213113056050.png)
+![image-20210213113056050](D:\资料\lecture-notes\03-Flex\image\image-20210213113056050.png)
 
 ------
 
@@ -436,7 +436,7 @@ flex-wrap : wrap-reverse
 
 效果👇
 
-![image-20210213113111070](D:\资料\lecture-notes\3-Flex\image\image-20210213113111070.png)
+![image-20210213113111070](D:\资料\lecture-notes\03-Flex\image\image-20210213113111070.png)
 
 ------
 
@@ -444,7 +444,7 @@ flex-wrap : wrap-reverse
 
 先来一张图👇
 
-![image-20210213113326769](D:\资料\lecture-notes\3-Flex\image\image-20210213113326769.png)
+![image-20210213113326769](D:\资料\lecture-notes\03-Flex\image\image-20210213113326769.png)
 
 `更多取值信息请查看` [`flex-direction`](https://developer.mozilla.org/zh-CN/docs/CSS/flex-direction) 和 [`flex-wrap`](https://developer.mozilla.org/zh-CN/docs/CSS/flex-wrap)
 
@@ -477,7 +477,7 @@ flex-wrap : wrap-reverse
 
 首先上一张图👇
 
-![image-20210213113409139](D:\资料\lecture-notes\3-Flex\image\image-20210213113409139.png)
+![image-20210213113409139](D:\资料\lecture-notes\03-Flex\image\image-20210213113409139.png)
 
 根据这些取值，我们来看看布局效果吧👇
 
@@ -490,7 +490,7 @@ align-content: flex-start
 
 效果👇
 
-![image-20210213113433984](D:\资料\lecture-notes\3-Flex\image\image-20210213113433984.png)
+![image-20210213113433984](D:\资料\lecture-notes\03-Flex\image\image-20210213113433984.png)
 
 ------
 
@@ -501,7 +501,7 @@ align-content: flex-end
 
 效果👇
 
-![image-20210213113452259](D:\资料\lecture-notes\3-Flex\image\image-20210213113452259.png)
+![image-20210213113452259](D:\资料\lecture-notes\03-Flex\image\image-20210213113452259.png)
 
 ------
 
@@ -512,7 +512,7 @@ align-content: center
 
 效果👇
 
-![image-20210213113520445](D:\资料\lecture-notes\3-Flex\image\image-20210213113520445.png)
+![image-20210213113520445](D:\资料\lecture-notes\03-Flex\image\image-20210213113520445.png)
 
 ------
 
@@ -523,7 +523,7 @@ align-content: space-between
 
 效果👇
 
-![image-20210213113539416](D:\资料\lecture-notes\3-Flex\image\image-20210213113539416.png)
+![image-20210213113539416](D:\资料\lecture-notes\03-Flex\image\image-20210213113539416.png)
 
 ------
 
@@ -534,7 +534,7 @@ align-content: space-around
 
 效果👇
 
-![image-20210213113620739](D:\资料\lecture-notes\3-Flex\image\image-20210213113620739.png)
+![image-20210213113620739](D:\资料\lecture-notes\03-Flex\image\image-20210213113620739.png)
 
 ------
 
@@ -545,7 +545,7 @@ align-content: stretch
 
 效果👇
 
-![image-20210213113635913](D:\资料\lecture-notes\3-Flex\image\image-20210213113635913.png)
+![image-20210213113635913](D:\资料\lecture-notes\03-Flex\image\image-20210213113635913.png)
 
 ------
 
@@ -556,7 +556,7 @@ align-content: baseline
 
 效果👇
 
-![image-20210213113820871](D:\资料\lecture-notes\3-Flex\image\image-20210213113820871.png)
+![image-20210213113820871](D:\资料\lecture-notes\03-Flex\image\image-20210213113820871.png)
 
 ------
 
@@ -575,7 +575,7 @@ align-content: baseline
 
 我们看个例子
 
-![image-20210213113841373](D:\资料\lecture-notes\3-Flex\image\image-20210213113841373.png)
+![image-20210213113841373](D:\资料\lecture-notes\03-Flex\image\image-20210213113841373.png)
 
 ------
 
@@ -585,11 +585,11 @@ align-content: baseline
 
 我们来看下效果👇
 
-![image-20210213113912944](D:\资料\lecture-notes\3-Flex\image\image-20210213113912944.png)
+![image-20210213113912944](D:\资料\lecture-notes\03-Flex\image\image-20210213113912944.png)
 
 当取值为0时，就会溢出，那么我们给它们设置一个值👇
 
-![image-20210213113929585](D:\资料\lecture-notes\3-Flex\image\image-20210213113929585.png)
+![image-20210213113929585](D:\资料\lecture-notes\03-Flex\image\image-20210213113929585.png)
 
 这样子的超出的部分就会按照比列减去。
 
@@ -616,7 +616,7 @@ align-content: baseline
   - ```css
     flex-direction：column | column-reverse
     ```
-    
+  
 - `flex-basis`设置的大小为高度，并且会覆盖height值
 
 我们来看看两种情况👇
@@ -628,7 +628,7 @@ flex-direction：row | row-reverse
 
 效果👇
 
-![image-20210213114023234](D:\资料\lecture-notes\3-Flex\image\image-20210213114023234.png)
+![image-20210213114023234](D:\资料\lecture-notes\03-Flex\image\image-20210213114023234.png)
 
 ------
 
@@ -639,7 +639,7 @@ flex-direction：column | column-reverse
 
 效果👇
 
-![image-20210213120459128](D:\资料\lecture-notes\3-Flex\image\image-20210213120459128.png)
+![image-20210213120459128](D:\资料\lecture-notes\03-Flex\image\image-20210213120459128.png)
 
 ------
 
@@ -651,7 +651,7 @@ flex-direction：column | column-reverse
 
 直接看效果图👇
 
-![image-20210213120526948](D:\资料\lecture-notes\3-Flex\image\image-20210213120526948.png)
+![image-20210213120526948](D:\资料\lecture-notes\03-Flex\image\image-20210213120526948.png)
 
 ------
 
@@ -661,7 +661,7 @@ flex-direction：column | column-reverse
 
 先看看子容器属性👇
 
-![image-20210213120553875](D:\资料\lecture-notes\3-Flex\image\image-20210213120553875.png)
+![image-20210213120553875](D:\资料\lecture-notes\03-Flex\image\image-20210213120553875.png)
 
 ------
 

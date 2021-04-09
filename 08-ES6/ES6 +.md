@@ -4,45 +4,7 @@
 
 [ES6函数默认参数](https://www.jianshu.com/p/e4ea0d43529c)
 
-------
-
-**ES6 声明变量的六种方法**
-
-- ES5 只有两种声明变量的方法：var 和 function 。
-- ES6 除了添加 let 和 const 命令。
-- 还有两种声明变量的方法：import 命令和 class 命令。
-
-------
-
-**Promise 的队列与 setTimeout 的队列有何关联 ？**
-
-```
-setTimeout(function(){ console.log(4) }, 0);
-new Promise(function(resolve){
-    console.log(1)
-    for( var i = 0 ; i < 10000 ; i++ ){
-        i == 9999 && resolve()
-    }
-    console.log(2)
-}).then(function(){
-    console.log(5)
-});
-console.log(3);
-```
-
-为什么结果是：1, 2, 3, 5, 4；而不是：1, 2, 3, 4, 5 ？
-
-js 里面有宏任务（macrotask）和微任务（microtask）。因为 setTimeout 是属于 macrotask 的，而整个 script 也是属于一个 macrotask，promise.then 回调是 microtask，执行过程大概如下：
-
-- 由于整个 script 也属于一个 macrotask，由于会先执行 macrotask 中的第一个任务，再加上 promise 构造函数因为是同步的，所以会先打印出 1 和 2；
-- 然后继续同步执行末尾的 console.log(3) 打印出 3；
-- 此时 setTimeout 被推进到 macrotask 队列中， promise.then 回调被推进到 microtask 队列中；
-- 由于在第一步中已经执行完了第一个 macrotask ，所以接下来会顺序执行所有的 microtask，也就是 promise.then 的回调函数，从而打印出 5；
-- microtask 队列中的任务已经执行完毕，继续执行剩下的 macrotask 队列中的任务，也就是 setTimeout，所以打印出 4。
-
-------
-
-**防抖与节流**
+防抖与节流**
 
 节流
 
